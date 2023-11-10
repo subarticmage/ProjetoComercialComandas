@@ -63,6 +63,16 @@ namespace ProjetoComercialComandas.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap atendente {
+            get {
+                object obj = ResourceManager.GetObject("atendente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap paul_alex_fXoUgvYHaF4_unsplash__1_ {
             get {
                 object obj = ResourceManager.GetObject("paul-alex-fXoUgvYHaF4-unsplash (1)", resourceCulture);
@@ -76,6 +86,16 @@ namespace ProjetoComercialComandas.Properties {
         internal static System.Drawing.Bitmap paul_alex_fXoUgvYHaF4_unsplash__2_ {
             get {
                 object obj = ResourceManager.GetObject("paul-alex-fXoUgvYHaF4-unsplash (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap x_sair {
+            get {
+                object obj = ResourceManager.GetObject("x sair", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
