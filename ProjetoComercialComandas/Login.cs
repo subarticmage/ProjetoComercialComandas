@@ -32,13 +32,13 @@ namespace ProjetoComercialComandas
                 usuario.Id =(int) resultado.Rows[0]["Id"];
                 MessageBox.Show(usuario.NomeCompleto);
                 //Proximo Passo: Abrir a janela menu:
-                MenuPrincipal janela= new MenuPrincipal();
+                MenuPrincipal janela= new MenuPrincipal(usuario);
                 //esconder a janela atual:
-                Hide();
-                    //mostrar o menu:
+                this.Hide();
+                //mostrar o menu:
                 janela.ShowDialog();
                 //mostrar o login quando o menu fechar:
-                Show();
+                this.Show();
 
 
             }

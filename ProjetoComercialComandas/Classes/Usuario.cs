@@ -47,6 +47,59 @@ namespace ProjetoComercialComandas.Classes
 
         }
 
+        public DataTable ListarTudo()
+        {
+            string comando = "SELECT id, nome_completo, email FROM usuarios"; 
+
+            DataBase.ConexaoBanco conexaoBD = new DataBase.ConexaoBanco();
+            MySqlConnection con = conexaoBD.ObterConexao();
+            MySqlCommand cmd = new MySqlCommand(comando, con);
+
+            cmd.Prepare();
+            // Declarar tabela que irá receber o resultado:
+            DataTable tabela = new DataTable();
+            // Preencher a tabela com o resultado da consulta
+            tabela.Load(cmd.ExecuteReader());
+            conexaoBD.Desconectar(con);
+            return tabela;
+
+        }
+
+        public bool Cadastrar()
+        {
+            string comando = "INSERT INTO Usuarios (nome_completo, email, senha) " +
+                "VALUES (@nome_completo, @email, @senha)";
+            DataBase.ConexaoBanco conexaoBD = new DataBase.ConexaoBanco();
+            MySqlConnection con = conexaoBD.ObterConexao();
+            MySqlCommand cmd = new MySqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@nome_completo", NomeCompleto);
+            cmd.Parameters.AddWithValue("@email", Email);
+            //obter o hash
+            string hashsenha = EasyEncryption.SHA.ComputeSHA256Hash(Senha);
+            cmd.Parameters.AddWithValue("@Senha", hashsenha);
+
+            
+            cmd.Prepare();
+            try
+            {
+                if (cmd.ExecuteNonQuery() == 0)
+                {
+                    conexaoBD.Desconectar(con);
+                    return false;
+                }
+                else
+                {
+                    conexaoBD.Desconectar(con);
+                    return true;
+                }
+            }
+            catch
+            {
+                conexaoBD.Desconectar(con);
+                return false;
+            }
+
+        }
 
 
 

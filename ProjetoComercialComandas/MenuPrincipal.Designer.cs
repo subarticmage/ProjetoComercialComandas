@@ -30,104 +30,115 @@
         {
             this.lblMenuPrincipal = new System.Windows.Forms.Label();
             this.lblSaudacao = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnComandas = new System.Windows.Forms.Button();
+            this.btnCaixa = new System.Windows.Forms.Button();
+            this.btnProdutos = new System.Windows.Forms.Button();
+            this.btnGerenciamentoUsuarios = new System.Windows.Forms.Button();
             this.pictureBoxAtendente = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFechar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtendente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFechar)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMenuPrincipal
             // 
             this.lblMenuPrincipal.AutoSize = true;
+            this.lblMenuPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMenuPrincipal.Location = new System.Drawing.Point(41, 23);
             this.lblMenuPrincipal.Name = "lblMenuPrincipal";
-            this.lblMenuPrincipal.Size = new System.Drawing.Size(98, 13);
+            this.lblMenuPrincipal.Size = new System.Drawing.Size(158, 20);
             this.lblMenuPrincipal.TabIndex = 0;
             this.lblMenuPrincipal.Text = "MENU PRINCIPAL";
             // 
             // lblSaudacao
             // 
             this.lblSaudacao.AutoSize = true;
+            this.lblSaudacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSaudacao.Location = new System.Drawing.Point(44, 50);
             this.lblSaudacao.Name = "lblSaudacao";
-            this.lblSaudacao.Size = new System.Drawing.Size(58, 13);
+            this.lblSaudacao.Size = new System.Drawing.Size(95, 20);
             this.lblSaudacao.TabIndex = 1;
             this.lblSaudacao.Text = "Olá, nome:";
             // 
-            // button1
+            // btnComandas
             // 
-            this.button1.Location = new System.Drawing.Point(13, 108);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnComandas.Location = new System.Drawing.Point(362, 71);
+            this.btnComandas.Name = "btnComandas";
+            this.btnComandas.Size = new System.Drawing.Size(250, 43);
+            this.btnComandas.TabIndex = 2;
+            this.btnComandas.Text = "COMANDAS";
+            this.btnComandas.UseVisualStyleBackColor = true;
+            this.btnComandas.Click += new System.EventHandler(this.btnComandas_Click);
             // 
-            // button2
+            // btnCaixa
             // 
-            this.button2.Location = new System.Drawing.Point(13, 137);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCaixa.Location = new System.Drawing.Point(362, 120);
+            this.btnCaixa.Name = "btnCaixa";
+            this.btnCaixa.Size = new System.Drawing.Size(250, 43);
+            this.btnCaixa.TabIndex = 3;
+            this.btnCaixa.Text = "CAIXA";
+            this.btnCaixa.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnProdutos
             // 
-            this.button3.Location = new System.Drawing.Point(13, 166);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnProdutos.Location = new System.Drawing.Point(362, 169);
+            this.btnProdutos.Name = "btnProdutos";
+            this.btnProdutos.Size = new System.Drawing.Size(250, 43);
+            this.btnProdutos.TabIndex = 4;
+            this.btnProdutos.Text = "PRODUTOS";
+            this.btnProdutos.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnGerenciamentoUsuarios
             // 
-            this.button4.Location = new System.Drawing.Point(13, 195);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(13, 224);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnGerenciamentoUsuarios.Location = new System.Drawing.Point(362, 218);
+            this.btnGerenciamentoUsuarios.Name = "btnGerenciamentoUsuarios";
+            this.btnGerenciamentoUsuarios.Size = new System.Drawing.Size(250, 43);
+            this.btnGerenciamentoUsuarios.TabIndex = 5;
+            this.btnGerenciamentoUsuarios.Text = "GERENCIAMENTO USUARIOS";
+            this.btnGerenciamentoUsuarios.UseVisualStyleBackColor = true;
+            this.btnGerenciamentoUsuarios.Click += new System.EventHandler(this.btnGerenciamentoUsuarios_Click);
             // 
             // pictureBoxAtendente
             // 
             this.pictureBoxAtendente.Image = global::ProjetoComercialComandas.Properties.Resources.atendente;
-            this.pictureBoxAtendente.Location = new System.Drawing.Point(230, 108);
+            this.pictureBoxAtendente.Location = new System.Drawing.Point(44, 71);
             this.pictureBoxAtendente.Name = "pictureBoxAtendente";
-            this.pictureBoxAtendente.Size = new System.Drawing.Size(220, 139);
+            this.pictureBoxAtendente.Size = new System.Drawing.Size(275, 190);
             this.pictureBoxAtendente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxAtendente.TabIndex = 7;
             this.pictureBoxAtendente.TabStop = false;
+            // 
+            // pictureBoxFechar
+            // 
+            this.pictureBoxFechar.Image = global::ProjetoComercialComandas.Properties.Resources.x_sair;
+            this.pictureBoxFechar.Location = new System.Drawing.Point(576, 12);
+            this.pictureBoxFechar.Name = "pictureBoxFechar";
+            this.pictureBoxFechar.Size = new System.Drawing.Size(67, 41);
+            this.pictureBoxFechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxFechar.TabIndex = 8;
+            this.pictureBoxFechar.TabStop = false;
+            this.pictureBoxFechar.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(655, 280);
+            this.Controls.Add(this.pictureBoxFechar);
             this.Controls.Add(this.pictureBoxAtendente);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGerenciamentoUsuarios);
+            this.Controls.Add(this.btnProdutos);
+            this.Controls.Add(this.btnCaixa);
+            this.Controls.Add(this.btnComandas);
             this.Controls.Add(this.lblSaudacao);
             this.Controls.Add(this.lblMenuPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuPrincipal";
+            this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtendente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFechar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,11 +148,11 @@
 
         private System.Windows.Forms.Label lblMenuPrincipal;
         private System.Windows.Forms.Label lblSaudacao;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnComandas;
+        private System.Windows.Forms.Button btnCaixa;
+        private System.Windows.Forms.Button btnProdutos;
+        private System.Windows.Forms.Button btnGerenciamentoUsuarios;
         private System.Windows.Forms.PictureBox pictureBoxAtendente;
+        private System.Windows.Forms.PictureBox pictureBoxFechar;
     }
 }
