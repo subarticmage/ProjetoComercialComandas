@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.grbCadastro = new System.Windows.Forms.GroupBox();
-            this.lblNomeCompleto = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblSenha = new System.Windows.Forms.Label();
-            this.btnCadastrar = new System.Windows.Forms.Button();
-            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.txtNomeCompletpCad = new System.Windows.Forms.TextBox();
-            this.txtEmailCad = new System.Windows.Forms.TextBox();
             this.txtSenhaCad = new System.Windows.Forms.TextBox();
+            this.txtEmailCad = new System.Windows.Forms.TextBox();
+            this.txtNomeCompletpCad = new System.Windows.Forms.TextBox();
+            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.lblSenha = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblNomeCompleto = new System.Windows.Forms.Label();
+            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.grbEdit = new System.Windows.Forms.GroupBox();
             this.txtSenhaEdit = new System.Windows.Forms.TextBox();
             this.txtEmailEdit = new System.Windows.Forms.TextBox();
@@ -76,32 +76,26 @@
             this.grbCadastro.Text = "Cadastro";
             this.grbCadastro.Enter += new System.EventHandler(this.grbCadastro_Enter);
             // 
-            // lblNomeCompleto
+            // txtSenhaCad
             // 
-            this.lblNomeCompleto.AutoSize = true;
-            this.lblNomeCompleto.Location = new System.Drawing.Point(6, 16);
-            this.lblNomeCompleto.Name = "lblNomeCompleto";
-            this.lblNomeCompleto.Size = new System.Drawing.Size(85, 13);
-            this.lblNomeCompleto.TabIndex = 0;
-            this.lblNomeCompleto.Text = "Nome Completo:";
+            this.txtSenhaCad.Location = new System.Drawing.Point(99, 65);
+            this.txtSenhaCad.Name = "txtSenhaCad";
+            this.txtSenhaCad.Size = new System.Drawing.Size(141, 20);
+            this.txtSenhaCad.TabIndex = 6;
             // 
-            // lblEmail
+            // txtEmailCad
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(7, 42);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(35, 13);
-            this.lblEmail.TabIndex = 1;
-            this.lblEmail.Text = "Email:";
+            this.txtEmailCad.Location = new System.Drawing.Point(98, 39);
+            this.txtEmailCad.Name = "txtEmailCad";
+            this.txtEmailCad.Size = new System.Drawing.Size(141, 20);
+            this.txtEmailCad.TabIndex = 5;
             // 
-            // lblSenha
+            // txtNomeCompletpCad
             // 
-            this.lblSenha.AutoSize = true;
-            this.lblSenha.Location = new System.Drawing.Point(7, 68);
-            this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(38, 13);
-            this.lblSenha.TabIndex = 2;
-            this.lblSenha.Text = "Senha";
+            this.txtNomeCompletpCad.Location = new System.Drawing.Point(98, 13);
+            this.txtNomeCompletpCad.Name = "txtNomeCompletpCad";
+            this.txtNomeCompletpCad.Size = new System.Drawing.Size(141, 20);
+            this.txtNomeCompletpCad.TabIndex = 4;
             // 
             // btnCadastrar
             // 
@@ -114,6 +108,33 @@
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            // 
+            // lblSenha
+            // 
+            this.lblSenha.AutoSize = true;
+            this.lblSenha.Location = new System.Drawing.Point(7, 68);
+            this.lblSenha.Name = "lblSenha";
+            this.lblSenha.Size = new System.Drawing.Size(38, 13);
+            this.lblSenha.TabIndex = 2;
+            this.lblSenha.Text = "Senha";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(7, 42);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(35, 13);
+            this.lblEmail.TabIndex = 1;
+            this.lblEmail.Text = "Email:";
+            // 
+            // lblNomeCompleto
+            // 
+            this.lblNomeCompleto.AutoSize = true;
+            this.lblNomeCompleto.Location = new System.Drawing.Point(6, 16);
+            this.lblNomeCompleto.Name = "lblNomeCompleto";
+            this.lblNomeCompleto.Size = new System.Drawing.Size(85, 13);
+            this.lblNomeCompleto.TabIndex = 0;
+            this.lblNomeCompleto.Text = "Nome Completo:";
             // 
             // dgvUsuarios
             // 
@@ -129,27 +150,7 @@
             this.dgvUsuarios.Size = new System.Drawing.Size(729, 237);
             this.dgvUsuarios.TabIndex = 2;
             this.dgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
-            // 
-            // txtNomeCompletpCad
-            // 
-            this.txtNomeCompletpCad.Location = new System.Drawing.Point(98, 13);
-            this.txtNomeCompletpCad.Name = "txtNomeCompletpCad";
-            this.txtNomeCompletpCad.Size = new System.Drawing.Size(141, 20);
-            this.txtNomeCompletpCad.TabIndex = 4;
-            // 
-            // txtEmailCad
-            // 
-            this.txtEmailCad.Location = new System.Drawing.Point(98, 39);
-            this.txtEmailCad.Name = "txtEmailCad";
-            this.txtEmailCad.Size = new System.Drawing.Size(141, 20);
-            this.txtEmailCad.TabIndex = 5;
-            // 
-            // txtSenhaCad
-            // 
-            this.txtSenhaCad.Location = new System.Drawing.Point(99, 65);
-            this.txtSenhaCad.Name = "txtSenhaCad";
-            this.txtSenhaCad.Size = new System.Drawing.Size(141, 20);
-            this.txtSenhaCad.TabIndex = 6;
+            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
             // 
             // grbEdit
             // 
@@ -199,6 +200,7 @@
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Editar";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // lblSenhaEdit
             // 
@@ -232,7 +234,7 @@
             this.gbrApagar.Controls.Add(this.lblApagar);
             this.gbrApagar.Location = new System.Drawing.Point(244, 433);
             this.gbrApagar.Name = "gbrApagar";
-            this.gbrApagar.Size = new System.Drawing.Size(343, 79);
+            this.gbrApagar.Size = new System.Drawing.Size(498, 79);
             this.gbrApagar.TabIndex = 8;
             this.gbrApagar.TabStop = false;
             this.gbrApagar.Text = "Apagar";
@@ -259,6 +261,7 @@
             this.btnApagar.TabIndex = 9;
             this.btnApagar.Text = "APAGAR";
             this.btnApagar.UseVisualStyleBackColor = false;
+            this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
             // 
             // lblGerenciamentodeUsuarios
             // 

@@ -102,6 +102,81 @@ namespace ProjetoComercialComandas.Classes
         }
 
 
+        public bool Apagar()
+        {
+            string comando = "DELETE FROM usuarios WHERE id=@id";
+            DataBase.ConexaoBanco conexaoBD = new DataBase.ConexaoBanco();
+            MySqlConnection con = conexaoBD.ObterConexao();
+            MySqlCommand cmd = new MySqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@Id", Id);
+           
+
+            cmd.Prepare();
+            try
+            {
+                if (cmd.ExecuteNonQuery() == 0)
+                {
+                    conexaoBD.Desconectar(con);
+                    return false;
+                }
+                else
+                {
+                    conexaoBD.Desconectar(con);
+                    return true;
+                }
+            }
+            catch
+            {
+                conexaoBD.Desconectar(con);
+                return false;
+            }
+        }
+
+
+        public bool Modificar()
+        {
+            string comando = "UPDATE Usuarios SET nome_completo=@nome_completo, " + "email=@email,senha=@senha WHERE id=@id";
+            //Comando SQL caso a senha esteja vazia:
+            if(Senha=="")
+            { 
+            
+            comando= "UPDATE Usuarios SET nome_completo=@nome_completo, " + "email=@email WHERE id=@id";
+
+            }
+            DataBase.ConexaoBanco conexaoBD = new DataBase.ConexaoBanco();
+            MySqlConnection con = conexaoBD.ObterConexao();
+            MySqlCommand cmd = new MySqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("Id", Id);
+            cmd.Parameters.AddWithValue("@nome_completo", NomeCompleto);
+            cmd.Parameters.AddWithValue("@email", Email);
+
+            //obter o hash
+            string hashsenha = EasyEncryption.SHA.ComputeSHA256Hash(Senha);
+            cmd.Parameters.AddWithValue("@Senha", hashsenha);
+
+
+            cmd.Prepare();
+            try
+            {
+                if (cmd.ExecuteNonQuery() == 0)
+                {
+                    conexaoBD.Desconectar(con);
+                    return false;
+                }
+                else
+                {
+                    conexaoBD.Desconectar(con);
+                    return true;
+                }
+            }
+            catch
+            {
+                conexaoBD.Desconectar(con);
+                return false;
+            }
+
+        }
 
     }
 }

@@ -12,7 +12,7 @@ namespace ProjetoComercialComandas.Views
 {
     public partial class GerenciamentoUsuarios : Form
     {
-        private int idSelecionado;
+         int idSelecionado=0;
 
         public GerenciamentoUsuarios()
         {
@@ -85,9 +85,81 @@ namespace ProjetoComercialComandas.Views
 
         private void lblApagar_Click(object sender, EventArgs e)
         {
-            Classes.Usuario usuario= new Classes.Usuario(); 
-            usuario.Id= idSelecionado;
+           
+        }
+
+        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnApagar_Click(object sender, EventArgs e)
+        {
+            Classes.Usuario usuario = new Classes.Usuario();
+            usuario.Id = idSelecionado;
             //apagar:
+            var r = MessageBox.Show("Tem certeza que deseja remover?", "Atenção!",
+                  MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.Yes)
+            {
+                //Apagar
+                if (usuario.Apagar() == true)
+                {
+                    MessageBox.Show("Usuario removido!", "Sucesso!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //Atualizar o dgv:
+                    dgvUsuarios.DataSource = usuario.ListarTudo();
+                    //Limpas os campos de edição:
+                    txtEmailEdit.Clear();
+                    txtNomeCompletoEdit.Clear();
+                    txtSenhaEdit.Clear();
+                    lblApagar.Text = "selecione um usuario para apagar.";
+                    //desabilitar os gbrs:
+                    gbrApagar.Enabled = false;
+                    grbEdit.Enabled = false;
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao remover usuario!", "Falha!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            //Obter os dos txts:
+            Classes.Usuario usuario = new Classes.Usuario();
+            usuario.Id=idSelecionado;
+            usuario.NomeCompleto = txtNomeCompletoEdit.Text;
+            usuario.Email = txtEmailEdit.Text;
+            usuario.Senha = txtSenhaEdit.Text;
+
+            //Editar:
+
+
+            if (usuario.Modificar() == true)
+            {
+                MessageBox.Show("Usuario Editado com sucesso!","Sucesso!",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                //Atualizar dgv
+                dgvUsuarios.DataSource=usuario.ListarTudo();
+                //Limpar os campos edição:
+                txtEmailEdit.Clear();
+                txtNomeCompletoEdit.Clear();
+                txtSenhaEdit.Clear();
+                lblApagar.Text = "Selecione um usuario para apagar.";
+                //Desabilitar os grbs:
+                grbEdit.Enabled=false;
+                btnEdit.Enabled = false;
+
+            }
+            else
+            {
+                MessageBox.Show("Falha ao Editar usuario!","Falha!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
     }
 }
