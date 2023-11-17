@@ -95,12 +95,59 @@ namespace ProjetoComercialComandas.Views
         }
 
         private void dgvProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            //verificar se o indice da coluna é valido e se a linha nao é de cabeçalho
+            if(e.RowIndex>=0 && e.RowIndex>=0)
         {
+            //Obter o ID do produto da celular da primeira coluna(assumindo que seja a coluna 0)
+                idSelecionado = Convert.ToInt32(dgvProdutos.Rows[e.RowIndex].Cells[0].Value);
+
+                //Preencher os campos de edição com a s informações da linha selecionada
+                txbNomeMod.Text = dgvProdutos.Rows[e.RowIndex].Cells["Nome"].Value.ToString();
+                txbPrecoMod.Text = dgvProdutos.Rows[e.RowIndex].Cells["Preco"].Value.ToString();
+                txbCatMod.Text = dgvProdutos.Rows[e.RowIndex].Cells["Categoria"].Value.ToString();
+                //Atualizar o rotulo informativo
+                lblApagarProdutos.Text= $"Editando o produto Id{idSelecionado}";
+                //Habilitar os controles de edição
+                gbrApagarProdutos.Enabled= false;
+                grbModProduto.Enabled= false;
 
         }
 
         private void btnEditarProdutos_Click(object sender, EventArgs e)
+         //verificar se algum produto esta selecionado
+            if(idSelecionado>0)
         {
+         //instanciar o produto
+                Classes.Produto produto = new Classes.Produto();
+    produto.Id= idSelecionado
+
+    //preencher as informações do produto a ser editado
+    produto.Nome=txbNomeMod.Text;
+    produto.Preco=txbPrecoMod.Text;
+                produto.idCategoria=txbCatMod.Text;
+
+                //Realizar a atualização no banco de dados
+                if(produto.Modificar())
+                {
+                    MessageBox.Show("Produto atualizado com sucesso!");
+                    //Limpar os campos de edição
+                    txbNomeMod.Clear();
+                    txbPrecoMod.Clear();
+                    txbCatMod.Clear();
+                    //Atualizar o dgv
+                    dgvProdutos.DataSource = produto.ListarTudo();
+
+                }
+                else
+{
+    MessageBox.Show("Falha ao atualizar o produto!");
+}
+
+
+{
+    MessageBox.Show("Selecione um produto para editar.");
+}               
+                
 
         }
     }
