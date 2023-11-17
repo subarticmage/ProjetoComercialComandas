@@ -45,5 +45,12 @@ namespace ProjetoComercialComandas
             janela.Show();
 
         }
+
+        private void btnProdutos_Click(object sender, EventArgs e)
+        {
+            //instanciar janela
+            Views.Produtos janela= new Views.Produtos();
+            janela.Show();
+        }
     }
 }

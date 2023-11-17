@@ -1,8 +1,11 @@
-﻿using System;
+﻿using EasyEncryption;
+using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace ProjetoComercialComandas.Classes
 {
@@ -18,7 +21,25 @@ namespace ProjetoComercialComandas.Classes
 
         public int idRespCadastro { get; set; }
 
+        public bool Cadastrar()
+        {
+            string comando= "INSERT INTO Produtos(nome_produto, preco,categoria) "+"VALUES(@nome_produto,@preco, @categoria");
+            DataBase.Produto produto= new DataBase.Produto();
+            MySqlConnection con = Produto.();
+        }
+        public bool Modificar()
+        {
+
+        }
+
+        public DataTable ListarTudo()
+        {
+
+        }
 
 
-    }
+
+
+
+        }
 }
