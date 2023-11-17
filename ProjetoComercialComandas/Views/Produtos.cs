@@ -114,16 +114,19 @@ namespace ProjetoComercialComandas.Views
         }
 
         private void btnEditarProdutos_Click(object sender, EventArgs e)
+
          //verificar se algum produto esta selecionado
             if(idSelecionado>0)
         {
+             
+        
          //instanciar o produto
                 Classes.Produto produto = new Classes.Produto();
-    produto.Id= idSelecionado
+                produto.Id= idSelecionado
 
-    //preencher as informações do produto a ser editado
-    produto.Nome=txbNomeMod.Text;
-    produto.Preco=txbPrecoMod.Text;
+                //preencher as informações do produto a ser editado
+                produto.Nome=txbNomeMod.Text;
+                produto.Preco=txbPrecoMod.Text;
                 produto.idCategoria=txbCatMod.Text;
 
                 //Realizar a atualização no banco de dados
@@ -139,15 +142,15 @@ namespace ProjetoComercialComandas.Views
 
                 }
                 else
-{
-    MessageBox.Show("Falha ao atualizar o produto!");
-}
-
-
-{
-    MessageBox.Show("Selecione um produto para editar.");
-}               
+                {
+                    MessageBox.Show("Falha ao atualizar o produto!");
+                }
+               
                 
+                {
+                    MessageBox.Show("Selecione um produto para editar.");
+                }               
+
 
         }
     }
