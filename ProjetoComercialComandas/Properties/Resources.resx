@@ -133,10 +133,16 @@
   <data name="paul-alex-fXoUgvYHaF4-unsplash (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\paul-alex-fXoUgvYHaF4-unsplash (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="9264122-conjunto-de-produtos-de-padaria-de-pao-frances-vetor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9264122-conjunto-de-produtos-de-padaria-de-pao-frances-vetor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="figurinha produtos21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\figurinha produtos21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="paul-alex-fXoUgvYHaF4-unsplash (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\paul-alex-fXoUgvYHaF4-unsplash (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="9264122-conjunto-de-produtos-de-padaria-de-pao-frances-vetor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\9264122-conjunto-de-produtos-de-padaria-de-pao-frances-vetor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="9264122-conjunto-de-produtos-de-padaria-de-pao-frances-vetor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9264122-conjunto-de-produtos-de-padaria-de-pao-frances-vetor1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

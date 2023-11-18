@@ -49,7 +49,7 @@ namespace ProjetoComercialComandas
         private void btnProdutos_Click(object sender, EventArgs e)
         {
             //instanciar janela
-            Views.Produtos janela= new Views.Produtos();
+            Views.GerenciamentoProdutos janela= new Views.GerenciamentoProdutos();
             janela.Show();
         }
     }

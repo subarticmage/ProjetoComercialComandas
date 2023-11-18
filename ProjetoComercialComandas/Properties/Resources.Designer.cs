@@ -73,6 +73,16 @@ namespace ProjetoComercialComandas.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _9264122_conjunto_de_produtos_de_padaria_de_pao_frances_vetor1 {
+            get {
+                object obj = ResourceManager.GetObject("9264122-conjunto-de-produtos-de-padaria-de-pao-frances-vetor1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap atendente {
             get {
                 object obj = ResourceManager.GetObject("atendente", resourceCulture);
@@ -86,6 +96,16 @@ namespace ProjetoComercialComandas.Properties {
         internal static System.Drawing.Bitmap figurinha_produtos2 {
             get {
                 object obj = ResourceManager.GetObject("figurinha produtos2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap figurinha_produtos21 {
+            get {
+                object obj = ResourceManager.GetObject("figurinha produtos21", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
