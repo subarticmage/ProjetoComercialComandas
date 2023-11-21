@@ -16,22 +16,24 @@ namespace ProjetoComercialComandas.Classes
 
         public string Nome { get; set; }
 
-        public double  Preco { get; set; }
+        public double Preco { get; set; }
 
-        public string idCategoria { get; set;}
+        public string idCategoria { get; set; }
 
         public int idRespCadastro { get; set; }
 
         public bool Cadastrar()
         {
+            MySqlConnection con = null;
             try
             {
-                string comando = "INSERT INTO Produtos(nome_produto, preco, categoria) VALUES (@nome_produto, @preco, @categoria)";
+                string comando = "INSERT INTO Produtos(nome_produto, preco, categoria)" +
+                    " VALUES (@nome_produto, @preco, @categoria)";
 
-                using (MySqlConnection con = DataBase.GetConnection())  // Certifique-se de ajustar este método conforme a sua implementação
+                con = DataBase.GetConnection();  // Certifique-se de ajustar este método conforme a sua implementação
                 {
                     con.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(comando, con))
+                    (MySqlCommand cmd = new MySqlCommand(comando, con);
                     {
                         cmd.Parameters.AddWithValue("@nome_produto", Nome);
                         cmd.Parameters.AddWithValue("@preco", Preco);
@@ -41,6 +43,7 @@ namespace ProjetoComercialComandas.Classes
 
                         return linhasAfetadas > 0;
                     }
+
                 }
             }
             catch (Exception ex)
@@ -53,6 +56,7 @@ namespace ProjetoComercialComandas.Classes
 
         public bool Modificar()
         {
+            MySqlConnection con = null;
             try
             {
                 // Implemente a lógica de modificação aqui
@@ -63,25 +67,32 @@ namespace ProjetoComercialComandas.Classes
                 Console.WriteLine($"Erro ao modificar produto: {ex.Message}");
                 return false;
             }
+            finally
+            {
+                if (con != null) con.Close();
+            }
+
         }
-        
+
 
         public DataTable ListarTudo()
         {
+            MySqlConnection con = null;
             try
             {
                 string comando = "SELECT * FROM Produtos";
 
-                using (MySqlConnection con = DataBase.GetConnection())
+                (MySqlConnection con = DataBase.GetConnection();
                 {
                     con.Open();
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(comando, con))
+                    (MySqlDataAdapter adapter = new MySqlDataAdapter(comando, con);
                     {
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
 
                         return dataTable;
                     }
+
                 }
             }
             catch (Exception ex)
@@ -89,11 +100,13 @@ namespace ProjetoComercialComandas.Classes
                 Console.WriteLine($"Erro ao listar produtos: {ex.Message}");
                 return null;
             }
+            finally
+            {  if (con != null) con.Close();}
         }
 
 
 
 
 
-        }
+    }   
 }

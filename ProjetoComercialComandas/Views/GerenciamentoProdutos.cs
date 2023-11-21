@@ -21,9 +21,10 @@ namespace ProjetoComercialComandas.Views
 
         {
             InitializeComponent();
-            Classes.Usuario usuario=new Classes.Usuario();
+            //instanciar a classe produto
+            Classes.Produto produto1 =new Classes.Produto();
             //Atribuir a tabela(resultado do select) no dgv:
-            dgvProdutos.DataSource = usuario;
+            dgvProdutos.DataSource = produto.ListarTudo();
         }
 
         public GerenciamentoProdutos()
@@ -42,18 +43,18 @@ namespace ProjetoComercialComandas.Views
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            //instanciar o usuario
+            //instanciar a CLASSE PRODUTO   
             Classes.Produto produto = new Classes.Produto();
             produto.Nome=txbNomeCad.Text;
            
             produto.idCategoria=cmbCatCad.Text.ToString();
-            if(produto.Cadastrar()==true)
+            if(produto.Cadastrar())
             {
                 MessageBox.Show("Produto cadastrado com sucesso!");
                 //limpar dados
                 txbNomeCad.Clear();
                 txbPrecoCad.Clear();
-                cmbCatCad.Items.Clear();
+                cmbCatCad.Text= string.Empty;
                 //atualizar o dgv
                 dgvProdutos.DataSource=produto.ListarTudo();
             }
@@ -71,18 +72,20 @@ namespace ProjetoComercialComandas.Views
             //apagar
             var r = MessageBox.Show("Tem certeza que deseja remover?",
                 "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (r == DialogResult.Yes)
+            if (r == DialogResult.Yes && IdSelecionado>0)
             {
+                Classes.Produto produto1 = new Classes.Produto();
+                produto.Id= IdSelecionado.ToString();
                 //Apagar
-                if(produto.Modificar()==true)
+                if(produto.Modificar())
                 {
                     MessageBox.Show("Produto removido!", "Sucesso!", MessageBoxButtons.OK,MessageBoxIcon.Information);
                     //Atualizar o dgv:
                     dgvProdutos.DataSource = produto.ListarTudo();
                     //limpar os campos de edição
-                    cmbNomeMod.Items.Clear();
+                    cmbNomeMod.Text= string.Empty;
                     txbPrecoMod.Clear();
-                    cmbCatMod.Items.Clear();
+                    cmbCatMod.Text= string.Empty;
                     lblApagar.Text = "Selecione um usuario para apagar.";
                     //desabilitar os gbrs
                     gbrApagar.Enabled = false;
@@ -99,10 +102,10 @@ namespace ProjetoComercialComandas.Views
         private void dgvProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //verificar se o indice da coluna é valido e se a linha nao é de cabeçalho
-            if (e.RowIndex >= && e.RowIndex >= 0)
+            if (e.RowIndex >0)
             {
                 //Obter o id do produto da primeira coluna(assumindo que seja a coluna 0)
-                IdSelecionado = Convert.ToInt32(dgvProdutos.Rows[e.RowIndex].Cells[0].Value);
+                IdSelecionado = Convert.ToInt32(dgvProdutos.Rows[e.RowIndex].Cells[IdSelecionado].Value);
                 //preencher os campos de edição com as informações da linha selecionada
                 cmbNomeMod.Text = dgvProdutos.Rows[e.RowIndex].Cells["Nome"].Value.ToString();
                 txbPrecoMod.Text = dgvProdutos.Rows[e.RowIndex].Cells["Preco"].Value.ToString();
@@ -110,8 +113,8 @@ namespace ProjetoComercialComandas.Views
                 //Atualizar o rotulo informativo
                 lblApagar.Text = $"Editando o produto Id{IdSelecionado}";
                 //Habilitar os controles de edição
-                gbrApagar.Enabled = false;
-                btnModificiar.Enabled = false;
+                gbrApagar.Enabled = true;
+                btnModificiar.Enabled = true;
             }
 
                 
@@ -124,20 +127,20 @@ namespace ProjetoComercialComandas.Views
             {
                 //instanciar o produto
                 Classes.Produto produto = new Classes.Produto();
-                produto.idRespCadastro = IdSelecionado;
+                produto.Id = IdSelecionado.ToString();
 
                 //preencher as informações do produto a ser modificado
                 produto.Nome = cmbNomeMod.Text;
-                produto.Preco = txbPrecoMod.Text;
+                produto.Preco = double.Parse(txbPrecoMod.Text);
                 produto.idCategoria = cmbCatMod.Text;
                 //realizar a atualização no banco de dados
                 if (produto.Modificar())
                 {
                     MessageBox.Show("produto atualizado com sucesso!");
                     //limpar os campos de edição
-                    cmbNomeMod.Items.Clear();
+                    cmbNomeMod.Text= string.Empty;
                     txbPrecoMod.Clear();
-                    cmbCatMod.Items.Clear();
+                    cmbCatMod.Text= string.Empty;
                     //atualizar o dgv
                     dgvProdutos.DataSource = produto.ListarTudo();
                 }
@@ -148,6 +151,11 @@ namespace ProjetoComercialComandas.Views
 
             }
                 
-        } 
+        }
+
+        private void GerenciamentoProdutos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
