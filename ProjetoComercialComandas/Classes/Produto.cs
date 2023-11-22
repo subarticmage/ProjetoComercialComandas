@@ -22,86 +22,109 @@ namespace ProjetoComercialComandas.Classes
 
         public int idRespCadastro { get; set; }
 
+
+
+
+
         public bool Cadastrar()
         {
-            MySqlConnection con = null;
+            string comando = "INSERT INTO `produtos`(`id`, `nome`, `preco`, `id_categoria`, `id_respcadastro`) " +
+                "VALUES (@id,@nome,@preco,@id_categoria,@id_respcadastro)";
+            DataBase.ConexaoBanco conexaoBD = new DataBase.ConexaoBanco();
+            MySqlConnection con = conexaoBD.ObterConexao();
+            MySqlCommand cmd = new MySqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@nome", Nome);
+            cmd.Parameters.AddWithValue("@preco", Preco);
+            cmd.Parameters.AddWithValue("@id_categoria", idCategoria); 
+            cmd.Parameters.AddWithValue("@id_respcadastro", idRespCadastro);
+
+
+
+            cmd.Prepare();
             try
             {
-                string comando = "INSERT INTO Produtos(nome_produto, preco, categoria)" +
-                    " VALUES (@nome_produto, @preco, @categoria)";
-
-                con = DataBase.GetConnection();  // Certifique-se de ajustar este método conforme a sua implementação
+                if (cmd.ExecuteNonQuery() == 0)
                 {
-                    con.Open();
-                    (MySqlCommand cmd = new MySqlCommand(comando, con);
-                    {
-                        cmd.Parameters.AddWithValue("@nome_produto", Nome);
-                        cmd.Parameters.AddWithValue("@preco", Preco);
-                        cmd.Parameters.AddWithValue("@categoria", IdCategoria);
-
-                        int linhasAfetadas = cmd.ExecuteNonQuery();
-
-                        return linhasAfetadas > 0;
-                    }
-
+                    conexaoBD.Desconectar(con);
+                    return true;
+                }
+                else
+                {
+                    conexaoBD.Desconectar(con);
+                    return true;
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                // Lide com a exceção apropriadamente (pode imprimir no console ou logar, por exemplo)
-                Console.WriteLine($"Erro ao cadastrar produto: {ex.Message}");
-                return false;
+                conexaoBD.Desconectar(con);
+                return true;
             }
+
+
         }
 
         public bool Modificar()
         {
-            MySqlConnection con = null;
+            string comando = "UPDATE Usuarios SET nome_completo=@nome_completo, " + "email=@email,senha=@senha WHERE id=@id";
+            //Comando SQL caso a senha esteja vazia:
+           
+            {
+
+                comando = "UPDATE Usuarios SET nome_completo=@nome_completo, " + "email=@email WHERE id=@id";
+
+            }
+            DataBase.ConexaoBanco conexaoBD = new DataBase.ConexaoBanco();
+            MySqlConnection con = conexaoBD.ObterConexao();
+            MySqlCommand cmd = new MySqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("Id", Id);
+            
+         
+
+
+
+
+            cmd.Prepare();
             try
             {
-                // Implemente a lógica de modificação aqui
-                return false;  // Substitua pelo código real
+                if (cmd.ExecuteNonQuery() == 0)
+                {
+                    conexaoBD.Desconectar(con);
+                    return false;
+                }
+                else
+                {
+                    conexaoBD.Desconectar(con);
+                    return true;
+                }
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine($"Erro ao modificar produto: {ex.Message}");
+                conexaoBD.Desconectar(con);
                 return false;
             }
-            finally
-            {
-                if (con != null) con.Close();
-            }
-
         }
+
+    
 
 
         public DataTable ListarTudo()
         {
-            MySqlConnection con = null;
-            try
-            {
-                string comando = "SELECT * FROM Produtos";
+            string comando = "SELECT `id`, `nome`, `preco`, `id_categoria`, `id_respcadastro` FROM `produtos` ";
 
-                (MySqlConnection con = DataBase.GetConnection();
-                {
-                    con.Open();
-                    (MySqlDataAdapter adapter = new MySqlDataAdapter(comando, con);
-                    {
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
+            DataBase.ConexaoBanco conexaoBD = new DataBase.ConexaoBanco();
+            MySqlConnection con = conexaoBD.ObterConexao();
+            MySqlCommand cmd = new MySqlCommand(comando, con);
 
-                        return dataTable;
-                    }
+            cmd.Prepare();
+            // Declarar tabela que irá receber o resultado:
+            DataTable tabela = new DataTable();
+            // Preencher a tabela com o resultado da consulta
+            tabela.Load(cmd.ExecuteReader());
+            conexaoBD.Desconectar(con);
+            return tabela;
 
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erro ao listar produtos: {ex.Message}");
-                return null;
-            }
-            finally
-            {  if (con != null) con.Close();}
+
         }
 
 

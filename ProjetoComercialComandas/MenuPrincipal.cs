@@ -30,7 +30,8 @@ namespace ProjetoComercialComandas
 
         private void btnComandas_Click(object sender, EventArgs e)
         {
-
+            Views.GerenciamentoComandas janela = new Views.GerenciamentoComandas(Usuario);
+            janela.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -48,8 +49,7 @@ namespace ProjetoComercialComandas
 
         private void btnProdutos_Click(object sender, EventArgs e)
         {
-            //instanciar janela
-            Views.GerenciamentoProdutos janela= new Views.GerenciamentoProdutos();
+            Views.GerenciamentoProdutos janela= new Views.GerenciamentoProdutos(Usuario);
             janela.Show();
         }
     }

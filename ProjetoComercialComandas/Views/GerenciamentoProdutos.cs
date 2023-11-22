@@ -16,20 +16,20 @@ namespace ProjetoComercialComandas.Views
     {
         int IdSelecionado = 0;
         //Global
-        Classes.Produto Produto= new Classes.Produto();
-        public GerenciamentoProdutos(Classes.Produto produto)
+        Classes.Usuario usuario= new Classes.Usuario();
+        public GerenciamentoProdutos(Classes.Usuario usuario)
 
         {
             InitializeComponent();
+            this.usuario = usuario;
+            this.Text = "Gerenciamento de comandas - " + "Logado como:" + usuario.NomeCompleto.ToUpper();
             //instanciar a classe produto
             Classes.Produto produto1 =new Classes.Produto();
             //Atribuir a tabela(resultado do select) no dgv:
-            dgvProdutos.DataSource = produto.ListarTudo();
+            dgvProdutos.DataSource = produto1.ListarTudo();
         }
 
-        public GerenciamentoProdutos()
-        {
-        }
+      
 
         private void label2_Click(object sender, EventArgs e)
         {
