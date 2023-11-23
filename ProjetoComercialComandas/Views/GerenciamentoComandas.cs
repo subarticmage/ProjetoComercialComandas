@@ -49,33 +49,68 @@ namespace ProjetoComercialComandas.Views
             txbProdutLanc.Text = Linha.Cells[1].Value.ToString();
         }
 
+        private void LimparTudo()
+        {
+            //limpar os campos
+            txbComanda.Text.Clone();
+            txbProdutInfos.Clear();
+            txbProdutLanc.Clear();
+            txbQuantidadeComand.Clear();
+
+            //resetar os grbs:
+            gbrInfos.Enabled = true;
+            gbrLancamento.Enabled = false;
+        }
+
         private void btnLancar_Click(object sender, EventArgs e)
         {
-            var r= MessageBox.Show("Tem certeza que deseja lançar?","Aviso!",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (r == DialogResult.Yes)
+            if(txbQuantidadeComand.Text!="")
             {
-                Classes.OrdemComanda ordem = new Classes.OrdemComanda();
-                ordem.IdProduto= int.Parse (txbComanda.Text);
-                ordem.IdProduto = int.Parse(txbProdutLanc.Text);
-                ordem.Quantidade = int.Parse(txbQuantidadeComand.Text);
-                ordem.IdResp = Usuario.Id;
+                var r = MessageBox.Show("Tem certeza que deseja lançar?", "Aviso!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r == DialogResult.Yes)
+                {
+                    Classes.OrdemComanda ordem = new Classes.OrdemComanda();
+                    ordem.IdProduto = int.Parse(txbComanda.Text);
+                    ordem.IdProduto = int.Parse(txbProdutLanc.Text);
+                    ordem.Quantidade = int.Parse(txbQuantidadeComand.Text);
+                    ordem.IdResp = Usuario.Id;
                     //efetuar o cadastro
-                    if(ordem.Novolancamento()==true)
-                {
-                    MessageBox.Show("Lançamento efetuado","Sucesso",MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Falha no Lnaçamento","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                }
+                    if (ordem.Novolancamento() == true)
+                    {
+                        MessageBox.Show("Lançamento efetuado", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimparTudo();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Falha no Lnaçamento", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        LimparTudo();
+                    }
 
+                }
             }
+            else
+            {
+                MessageBox.Show("Informe a quantidade!","Erro!",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btnContinuar_Click(object sender, EventArgs e)
         {
-            gbrLancamento.Enabled = true;
-            gbrInfos.Enabled = true;
+            if (txbComanda.Text != "" && txbProdutInfos.Text != "")
+            {
+                gbrLancamento.Enabled = true;
+                gbrInfos.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Verifique as informações digitadas!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimparTudo();
         }
     }
 }

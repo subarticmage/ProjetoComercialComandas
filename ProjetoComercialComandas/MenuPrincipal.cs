@@ -52,5 +52,11 @@ namespace ProjetoComercialComandas
             Views.GerenciamentoProdutos janela= new Views.GerenciamentoProdutos(Usuario);
             janela.Show();
         }
+
+        private void btnCaixa_Click(object sender, EventArgs e)
+        {
+            Views.Caixa janela= new Views.Caixa(Usuario);
+            janela.Show();
+        }
     }
 }

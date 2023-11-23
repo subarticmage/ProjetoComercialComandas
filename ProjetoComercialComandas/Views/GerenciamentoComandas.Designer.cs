@@ -31,18 +31,19 @@
             this.gdvGerenciamentoComand = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbrInfos = new System.Windows.Forms.GroupBox();
-            this.gbrLancamento = new System.Windows.Forms.GroupBox();
-            this.lblComanda = new System.Windows.Forms.Label();
+            this.txbProdutInfos = new System.Windows.Forms.TextBox();
+            this.txbComanda = new System.Windows.Forms.TextBox();
+            this.btnContinuar = new System.Windows.Forms.Button();
             this.lblProdutoComanda = new System.Windows.Forms.Label();
+            this.lblComanda = new System.Windows.Forms.Label();
+            this.gbrLancamento = new System.Windows.Forms.GroupBox();
+            this.txbProdutLanc = new System.Windows.Forms.TextBox();
+            this.txbQuantidadeComand = new System.Windows.Forms.TextBox();
+            this.btnLancar = new System.Windows.Forms.Button();
             this.lblprodutolanca = new System.Windows.Forms.Label();
             this.lblQuantidade = new System.Windows.Forms.Label();
             this.lblComandasTitulo = new System.Windows.Forms.Label();
-            this.btnContinuar = new System.Windows.Forms.Button();
-            this.btnLancar = new System.Windows.Forms.Button();
-            this.txbComanda = new System.Windows.Forms.TextBox();
-            this.txbQuantidadeComand = new System.Windows.Forms.TextBox();
-            this.txbProdutLanc = new System.Windows.Forms.TextBox();
-            this.txbProdutInfos = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gdvGerenciamentoComand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbrInfos.SuspendLayout();
@@ -54,7 +55,7 @@
             this.gdvGerenciamentoComand.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gdvGerenciamentoComand.Location = new System.Drawing.Point(294, 58);
             this.gdvGerenciamentoComand.Name = "gdvGerenciamentoComand";
-            this.gdvGerenciamentoComand.Size = new System.Drawing.Size(288, 380);
+            this.gdvGerenciamentoComand.Size = new System.Drawing.Size(288, 410);
             this.gdvGerenciamentoComand.TabIndex = 0;
             this.gdvGerenciamentoComand.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdvGerenciamentoComand_CellClick);
             // 
@@ -83,20 +84,38 @@
             this.gbrInfos.TabStop = false;
             this.gbrInfos.Text = "Informações";
             // 
-            // gbrLancamento
+            // txbProdutInfos
             // 
-            this.gbrLancamento.Controls.Add(this.txbProdutLanc);
-            this.gbrLancamento.Controls.Add(this.txbQuantidadeComand);
-            this.gbrLancamento.Controls.Add(this.btnLancar);
-            this.gbrLancamento.Controls.Add(this.lblprodutolanca);
-            this.gbrLancamento.Controls.Add(this.lblQuantidade);
-            this.gbrLancamento.Enabled = false;
-            this.gbrLancamento.Location = new System.Drawing.Point(12, 251);
-            this.gbrLancamento.Name = "gbrLancamento";
-            this.gbrLancamento.Size = new System.Drawing.Size(276, 187);
-            this.gbrLancamento.TabIndex = 3;
-            this.gbrLancamento.TabStop = false;
-            this.gbrLancamento.Text = "Lançamento";
+            this.txbProdutInfos.Location = new System.Drawing.Point(81, 102);
+            this.txbProdutInfos.Name = "txbProdutInfos";
+            this.txbProdutInfos.Size = new System.Drawing.Size(186, 20);
+            this.txbProdutInfos.TabIndex = 9;
+            // 
+            // txbComanda
+            // 
+            this.txbComanda.Location = new System.Drawing.Point(81, 46);
+            this.txbComanda.Name = "txbComanda";
+            this.txbComanda.Size = new System.Drawing.Size(186, 20);
+            this.txbComanda.TabIndex = 6;
+            // 
+            // btnContinuar
+            // 
+            this.btnContinuar.Location = new System.Drawing.Point(9, 136);
+            this.btnContinuar.Name = "btnContinuar";
+            this.btnContinuar.Size = new System.Drawing.Size(261, 45);
+            this.btnContinuar.TabIndex = 2;
+            this.btnContinuar.Text = "CONTINUAR";
+            this.btnContinuar.UseVisualStyleBackColor = true;
+            this.btnContinuar.Click += new System.EventHandler(this.btnContinuar_Click);
+            // 
+            // lblProdutoComanda
+            // 
+            this.lblProdutoComanda.AutoSize = true;
+            this.lblProdutoComanda.Location = new System.Drawing.Point(6, 102);
+            this.lblProdutoComanda.Name = "lblProdutoComanda";
+            this.lblProdutoComanda.Size = new System.Drawing.Size(47, 13);
+            this.lblProdutoComanda.TabIndex = 1;
+            this.lblProdutoComanda.Text = "Produto:";
             // 
             // lblComanda
             // 
@@ -107,14 +126,46 @@
             this.lblComanda.TabIndex = 0;
             this.lblComanda.Text = "Comanda:";
             // 
-            // lblProdutoComanda
+            // gbrLancamento
             // 
-            this.lblProdutoComanda.AutoSize = true;
-            this.lblProdutoComanda.Location = new System.Drawing.Point(6, 102);
-            this.lblProdutoComanda.Name = "lblProdutoComanda";
-            this.lblProdutoComanda.Size = new System.Drawing.Size(47, 13);
-            this.lblProdutoComanda.TabIndex = 1;
-            this.lblProdutoComanda.Text = "Produto:";
+            this.gbrLancamento.Controls.Add(this.btnCancelar);
+            this.gbrLancamento.Controls.Add(this.txbProdutLanc);
+            this.gbrLancamento.Controls.Add(this.txbQuantidadeComand);
+            this.gbrLancamento.Controls.Add(this.btnLancar);
+            this.gbrLancamento.Controls.Add(this.lblprodutolanca);
+            this.gbrLancamento.Controls.Add(this.lblQuantidade);
+            this.gbrLancamento.Enabled = false;
+            this.gbrLancamento.Location = new System.Drawing.Point(12, 251);
+            this.gbrLancamento.Name = "gbrLancamento";
+            this.gbrLancamento.Size = new System.Drawing.Size(276, 217);
+            this.gbrLancamento.TabIndex = 3;
+            this.gbrLancamento.TabStop = false;
+            this.gbrLancamento.Text = "Lançamento";
+            // 
+            // txbProdutLanc
+            // 
+            this.txbProdutLanc.Location = new System.Drawing.Point(81, 43);
+            this.txbProdutLanc.Name = "txbProdutLanc";
+            this.txbProdutLanc.ReadOnly = true;
+            this.txbProdutLanc.Size = new System.Drawing.Size(186, 20);
+            this.txbProdutLanc.TabIndex = 8;
+            // 
+            // txbQuantidadeComand
+            // 
+            this.txbQuantidadeComand.Location = new System.Drawing.Point(81, 89);
+            this.txbQuantidadeComand.Name = "txbQuantidadeComand";
+            this.txbQuantidadeComand.Size = new System.Drawing.Size(186, 20);
+            this.txbQuantidadeComand.TabIndex = 7;
+            // 
+            // btnLancar
+            // 
+            this.btnLancar.Location = new System.Drawing.Point(6, 115);
+            this.btnLancar.Name = "btnLancar";
+            this.btnLancar.Size = new System.Drawing.Size(261, 45);
+            this.btnLancar.TabIndex = 3;
+            this.btnLancar.Text = "LANÇAR";
+            this.btnLancar.UseVisualStyleBackColor = true;
+            this.btnLancar.Click += new System.EventHandler(this.btnLancar_Click);
             // 
             // lblprodutolanca
             // 
@@ -145,53 +196,15 @@
             this.lblComandasTitulo.TabIndex = 4;
             this.lblComandasTitulo.Text = "Comandas";
             // 
-            // btnContinuar
+            // btnCancelar
             // 
-            this.btnContinuar.Location = new System.Drawing.Point(9, 136);
-            this.btnContinuar.Name = "btnContinuar";
-            this.btnContinuar.Size = new System.Drawing.Size(261, 45);
-            this.btnContinuar.TabIndex = 2;
-            this.btnContinuar.Text = "CONTINUAR";
-            this.btnContinuar.UseVisualStyleBackColor = true;
-            this.btnContinuar.Click += new System.EventHandler(this.btnContinuar_Click);
-            // 
-            // btnLancar
-            // 
-            this.btnLancar.Location = new System.Drawing.Point(6, 136);
-            this.btnLancar.Name = "btnLancar";
-            this.btnLancar.Size = new System.Drawing.Size(261, 45);
-            this.btnLancar.TabIndex = 3;
-            this.btnLancar.Text = "LANÇAR";
-            this.btnLancar.UseVisualStyleBackColor = true;
-            this.btnLancar.Click += new System.EventHandler(this.btnLancar_Click);
-            // 
-            // txbComanda
-            // 
-            this.txbComanda.Location = new System.Drawing.Point(81, 46);
-            this.txbComanda.Name = "txbComanda";
-            this.txbComanda.Size = new System.Drawing.Size(186, 20);
-            this.txbComanda.TabIndex = 6;
-            // 
-            // txbQuantidadeComand
-            // 
-            this.txbQuantidadeComand.Location = new System.Drawing.Point(81, 89);
-            this.txbQuantidadeComand.Name = "txbQuantidadeComand";
-            this.txbQuantidadeComand.Size = new System.Drawing.Size(186, 20);
-            this.txbQuantidadeComand.TabIndex = 7;
-            // 
-            // txbProdutLanc
-            // 
-            this.txbProdutLanc.Location = new System.Drawing.Point(81, 43);
-            this.txbProdutLanc.Name = "txbProdutLanc";
-            this.txbProdutLanc.Size = new System.Drawing.Size(186, 20);
-            this.txbProdutLanc.TabIndex = 8;
-            // 
-            // txbProdutInfos
-            // 
-            this.txbProdutInfos.Location = new System.Drawing.Point(81, 102);
-            this.txbProdutInfos.Name = "txbProdutInfos";
-            this.txbProdutInfos.Size = new System.Drawing.Size(186, 20);
-            this.txbProdutInfos.TabIndex = 9;
+            this.btnCancelar.Location = new System.Drawing.Point(6, 166);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(261, 45);
+            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // GerenciamentoComandas
             // 
@@ -236,5 +249,6 @@
         private System.Windows.Forms.TextBox txbQuantidadeComand;
         private System.Windows.Forms.TextBox txbProdutInfos;
         private System.Windows.Forms.TextBox txbProdutLanc;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
