@@ -29,7 +29,7 @@ namespace ProjetoComercialComandas.Classes
 
         public bool EncerrarFicha()
         {
-            string comando = "UPDATE ordens_comandas SET situacao= 0" + "WHERE id_ficha = @id_ficha AND situacao=1";
+            string comando = "UPDATE ordens_comandas SET situacao= 0 " + "WHERE id_ficha = @id_ficha AND situacao=1";
            
             {
 
